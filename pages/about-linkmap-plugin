@@ -4,7 +4,7 @@
     {
       "type": "paragraph",
       "id": "cbed269155f9e810",
-      "text": "This plugin will ask the server to create a map of all its pages and the links between them. [https://github.com/WardCunningham/Smallest-Federated-Wiki/tree/master/client/plugins/linkmap github]"
+      "text": "This plugin will ask the server to create a map of all its pages and the links between them. [https://github.com/fedwiki/wiki-plugin-linkmap github]"
     },
     {
       "type": "linkmap",
@@ -364,6 +364,16 @@
         "text": "See [[Linkmap Network Diagram]]."
       },
       "date": 1361551756906
+    },
+    {
+      "type": "edit",
+      "id": "cbed269155f9e810",
+      "item": {
+        "type": "paragraph",
+        "id": "cbed269155f9e810",
+        "text": "This plugin will ask the server to create a map of all its pages and the links between them. [https://github.com/fedwiki/wiki-plugin-linkmap github]"
+      },
+      "date": 1389177563482
     }
   ]
 }
