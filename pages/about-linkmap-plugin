@@ -16,9 +16,9 @@
       "text": "This plugin uses websockets to communicate with its server-side half. This anticipates long running, low latency, continuous updates but does not choose to offer this yet."
     },
     {
-      "type": "paragraph",
+      "type": "html",
       "id": "6a1b97aaf55ec0e1",
-      "text": "<h3> Results"
+      "text": "<h3>Results</h3>"
     },
     {
       "type": "paragraph",
@@ -374,6 +374,37 @@
         "text": "This plugin will ask the server to create a map of all its pages and the links between them. [https://github.com/fedwiki/wiki-plugin-linkmap github]"
       },
       "date": 1389177563482
+    },
+    {
+      "type": "edit",
+      "id": "6a1b97aaf55ec0e1",
+      "item": {
+        "type": "paragraph",
+        "id": "6a1b97aaf55ec0e1",
+        "text": "<h3>Results</h3>"
+      },
+      "date": 1418315789926
+    },
+    {
+      "type": "edit",
+      "id": "6a1b97aaf55ec0e1",
+      "item": {
+        "type": "html",
+        "id": "6a1b97aaf55ec0e1",
+        "text": "<h3>Results</h3>"
+      },
+      "date": 1418315792526
+    },
+    {
+      "type": "edit",
+      "id": "6a1b97aaf55ec0e1",
+      "item": {
+        "type": "html",
+        "id": "6a1b97aaf55ec0e1",
+        "text": "<h3>Results</h3>"
+      },
+      "date": 1418315792529
     }
-  ]
+  ],
+  "plugin": "linkmap"
 }
