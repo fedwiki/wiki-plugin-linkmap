@@ -1,3 +1,10 @@
+###
+ * Federated Wiki : Linkmap Plugin
+ *
+ * Licensed under the MIT license.
+ * https://github.com/fedwiki/wiki-plugin-linkmap/blob/master/LICENSE.txt
+###
+
 # {"slug": ["slug"]}
 linkdata = "{}"
 linkmap = {}

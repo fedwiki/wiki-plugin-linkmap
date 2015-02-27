@@ -1,0 +1,6 @@
+Authors ordered by first contribution
+
+Ward Cunningham <ward@c2.com>
+Nicholas Hallahan <nick@theoutpost.io>
+Nick Niemeir <nick.niemeir@gmail.com>
+Paul Rodwell <paul.rodwell@btinternet.com>
