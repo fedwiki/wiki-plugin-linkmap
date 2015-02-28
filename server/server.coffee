@@ -1,3 +1,10 @@
+###
+ * Federated Wiki : Linkmap Plugin
+ *
+ * Licensed under the MIT license.
+ * https://github.com/fedwiki/wiki-plugin-linkmap/blob/master/LICENSE.txt
+###
+
 WebSocketServer = require('ws').Server
 fs = require 'fs'
 
@@ -30,7 +37,7 @@ buildmap = (pages) ->
 				do (slug) ->
 					fetchPage "#{pages}/#{slug}", (page) ->
 						linkmap[slug] = findLinks page
-	
+
 
 startServer = (params) ->
 	console.log 'linkmap startServer', (k for k,v of params)
