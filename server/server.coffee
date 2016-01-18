@@ -5,7 +5,6 @@
  * https://github.com/fedwiki/wiki-plugin-linkmap/blob/master/LICENSE.txt
 ###
 
-WebSocketServer = require('ws').Server
 fs = require 'fs'
 
 linkmap = {}
@@ -19,35 +18,39 @@ fetchPage = (path, done) ->
     done JSON.parse text
 
 findLinks = (page) ->
-	unique = {}
-	for item in page.story || []
-		links = switch item?.type
-			when 'paragraph' then item.text.match /\[\[([^\]]+)\]\]/g
-		if links
-			for link in links
-				[match, title] = link.match /\[\[([^\]]+)\]\]/
-				unique[asSlug title] = title
-	slug for slug, title of unique
+  unique = {}
+  for item in page.story || []
+    links = switch item?.type
+      when 'paragraph' then item.text.match /\[\[([^\]]+)\]\]/g
+    if links
+      for link in links
+        [match, title] = link.match /\[\[([^\]]+)\]\]/
+        unique[asSlug title] = title
+  slug for slug, title of unique
 
 buildmap = (pages) ->
-	fs.readdir pages, (err, names) ->
-		return if err or !names?.length
-		for slug in names
-			if slug.match /^[a-z0-9-]+$/
-				do (slug) ->
-					fetchPage "#{pages}/#{slug}", (page) ->
-						linkmap[slug] = findLinks page
+  fs.readdir pages, (err, names) ->
+    return if err or !names?.length
+    for slug in names
+      console.log 'linkmap (slug): ', slug
+      if slug.match /^[a-z0-9-]+$/
+        do (slug) ->
+          fetchPage "#{pages}/#{slug}", (page) ->
+            linkmap[slug] = findLinks page
 
 
 startServer = (params) ->
-	console.log 'linkmap startServer', (k for k,v of params)
+  console.log 'linkmap startServer', (k for k,v of params)
+  app = params.app
+  server = params.server
+  expressWs = require('express-ws')(app, server)
 
-	buildmap params.argv.db
+  buildmap params.argv.db
 
-	socket = new WebSocketServer({server: params.server, path: '/plugin/linkmap'})
-	socket.on 'connection', (ws) ->
-		console.log 'connection established, ready to send'
-		ws.send JSON.stringify(linkmap, null, 2), (err) ->
-			console.log 'unable to send ws message:', err if err
+  app.ws '/plugin/linkmap', (ws, req) ->
+    console.log 'connection established, ready to send'
+    console.log req.session
+    ws.send JSON.stringify(linkmap, null, 2), (err) ->
+      console.log 'unable to send ws message:', err if err
 
 module.exports = {startServer}
